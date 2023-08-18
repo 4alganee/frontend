@@ -17,6 +17,7 @@ function App() {
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <View>
         <Text>Hello World</Text>
+        <Text>test</Text>
       </View>
     </SafeAreaView>
   );
