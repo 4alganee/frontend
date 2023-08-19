@@ -50,7 +50,14 @@ export const Detail = () => {
               </View>
             </View>
             <View style={styles.reviecontentwrapper}>
-              <Text style={globalstyles.h3}>메뉴 리뷰 더보기 +</Text>
+              <View style={styles.showMoreReviewWrapper}>
+                <Text style={globalstyles.h3}>메뉴 리뷰 더보기</Text>
+                <TouchableOpacity>
+                  <Text style={globalstyles.h3} onPress={() => {
+          navigation.navigate('Review');
+        }}> + </Text>
+                </TouchableOpacity>
+              </View>
               <View style={styles.revielistwwrapper}>
                 <View style={styles.reviewwrapper}>
                   <View style={styles.profileimg} />
@@ -144,6 +151,9 @@ const styles = StyleSheet.create({
   },
   reviecontentwrapper: {
     rowGap: 10 * height,
+  },
+  showMoreReviewWrapper: {
+    flexDirection: 'row',
   },
   revielistwwrapper: {
     rowGap: 10 * height,
