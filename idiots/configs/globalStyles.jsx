@@ -11,11 +11,16 @@ export const height = HEIGHT / FIGMA_WINDOW_HEIGHT;
 export const scale = Math.sqrt(WIDTH * HEIGHT) / FIGMA_SCALE;
 export const globalstyles = StyleSheet.create({
   h1: {
-    fontSize: 20 * scale,
+    fontSize: 24 * scale,
     fontWeight: '700',
     fontFamily: 'SUITVariable-Regular',
   },
   h2: {
+    fontSize: 18 * scale,
+    fontWeight: '600',
+    fontFamily: 'SUITVariable-Regular',
+  },
+  h2_2: {
     fontSize: 18 * scale,
     fontWeight: '700',
     fontFamily: 'SUITVariable-Regular',

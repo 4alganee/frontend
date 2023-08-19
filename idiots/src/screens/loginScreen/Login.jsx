@@ -28,9 +28,10 @@ export const Login = () => {
           style={styles.inputBox} 
           onChangeText={text => setPw(text)}
           autoCapitalize='none'
+          secureTextEntry={true}
         />
         <Button
-          title="input button"
+          title="submit"
           onPress={() => {
             validate();
           }}
