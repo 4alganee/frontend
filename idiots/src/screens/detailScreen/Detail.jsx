@@ -76,7 +76,7 @@ export const Detail = props => {
                   {recipe.tags ? (
                     recipe.tags.map((item, index) => {
                       return (
-                        <View style={[styles.tag, {backgroundColor: "#FF6565"}]}>
+                        <View key={index} style={[styles.tag, {backgroundColor: "#FF6565"}]}>
                           <Text style={[globalstyles.p1, {color: "white"}]}>{item.recipeTag.name}</Text>
                         </View>
                       )   
