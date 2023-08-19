@@ -1,6 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import {
   Button,
+  Image,
   ScrollView,
   StyleSheet,
   Text,
@@ -9,25 +10,30 @@ import {
 } from 'react-native';
 import {globalstyles, height, scale, width} from '../../configs/globalStyles';
 
-export const Detail = () => {
+export const Detail = props => {
+  const recipe = props.route.params;
   const navigation = useNavigation();
+  const imgSrc = {
+    uri: recipe.image,
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView>
-        <View style={styles.img} />
+        <Image source={{uri: recipe.image}} style={styles.img} />
         <View style={styles.warpper}>
           <View style={styles.contentwrapper}>
             <View style={styles.headerwrapper}>
               <View style={styles.titlewrapper}>
-                <Text style={globalstyles.h1}>나래's 아이스크림</Text>
+                <Text style={globalstyles.h1}>{recipe.name}</Text>
                 <View style={styles.heartwrapper}>
                   <Text style={globalstyles.h1}>♥</Text>
-                  <Text style={globalstyles.p2}>+24</Text>
+                  <Text style={globalstyles.p2}>{recipe.likes}</Text>
                 </View>
               </View>
               <View style={styles.tagwrapper}>
                 <View style={styles.tag}>
-                  <Text style={styles.p1}>5분이내 완료</Text>
+                  <Text style={styles.p1}>{recipe.estimatedTime}</Text>
                 </View>
                 <View style={styles.tag}>
                   <Text style={styles.p1}>쌀떡</Text>
@@ -35,11 +41,7 @@ export const Detail = () => {
               </View>
             </View>
             <View style={styles.infowrapper}>
-              <Text style={globalstyles.p1}>
-                나 혼자 산다에 나온 박**의나 혼자 산다에 나온 박**의 파인애플
-                아이스크림.파인애플 아이스크림.나 혼자 산다에 나온 박**의
-                파인애플 아이스크림.
-              </Text>
+              <Text style={globalstyles.p1}>{recipe.content}</Text>
               <View style={styles.ingredientwrapper}>
                 <Text style={[globalstyles.p2, styles.ingredient]}>
                   1인분 기준
@@ -112,7 +114,6 @@ const styles = StyleSheet.create({
   },
   img: {
     height: 250 * height,
-    backgroundColor: 'gray',
   },
   warpper: {
     paddingHorizontal: 10 * width,
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: 50 * width,
+    columnGap: 5 * width,
   },
   tagwrapper: {
     flexDirection: 'row',
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
     borderRadius: 5 * scale,
   },
   infowrapper: {
-    rowGap: 10 * height,
+    rowGap: 20 * height,
   },
   ingredient: {
     color: '#828282',

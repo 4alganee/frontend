@@ -1,4 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
+import axios from 'axios';
+import {useEffect, useState} from 'react';
 import {
   Button,
   Image,
@@ -8,54 +10,54 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import {height, scale, width} from '../../configs/globalStyles';
+import {globalstyles, height, scale, width} from '../../configs/globalStyles';
 
-export const Menu = () => {
+export const Menu = props => {
+  const foodId = props.route.params;
   const navigation = useNavigation();
+  const [recipe, setRecipe] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const fetchData = async () => {
+    setLoading(false);
+    const response = await axios
+      .get('http://34.64.111.128:3000/recipe')
+      .then(setLoading(true))
+      .catch(err => {
+        setLoading(false);
+      });
+    setRecipe(response.data);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <ScrollView style={styles.container}>
-      <TouchableOpacity
-        style={styles.foodCardWrapper}
-        onPress={() => {
-          navigation.navigate('Detail');
-        }}>
-        <Image style={styles.foodIMG} />
-        <View style={styles.foodNameTag}>
-          <Text style={styles.foodName}>Food Name</Text>
-          <View style={styles.likedWrapper}>
-            <Image style={styles.likedIMG} />
-            <Text>100</Text>
-          </View>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.foodCardWrapper}
-        onPress={() => {
-          navigation.navigate('Detail');
-        }}>
-        <Image style={styles.foodIMG} />
-        <View style={styles.foodNameTag}>
-          <Text style={styles.foodName}>Food Name</Text>
-          <View style={styles.likedWrapper}>
-            <Image style={styles.likedIMG} />
-            <Text>100</Text>
-          </View>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.foodCardWrapper}
-        onPress={() => {
-          navigation.navigate('Detail');
-        }}>
-        <Image style={styles.foodIMG} />
-        <View style={styles.foodNameTag}>
-          <Text style={styles.foodName}>Food Name</Text>
-          <View style={styles.likedWrapper}>
-            <Image style={styles.likedIMG} />
-            <Text>100</Text>
-          </View>
-        </View>
-      </TouchableOpacity>
+      {loading ? (
+        recipe.map((item, index) => {
+          if (item.foodId === foodId.foodId) {
+            return (
+              <TouchableOpacity
+                key={item.id}
+                style={styles.foodCardWrapper}
+                onPress={() => {
+                  navigation.navigate('Detail', {foodId: item.recipeId});
+                }}>
+                <Image source={{uri: item.image}} style={styles.foodIMG} />
+                <View style={styles.foodNameTag}>
+                  <Text style={styles.foodName}>{item.name}</Text>
+                  <View style={styles.likedWrapper}>
+                    <Image style={styles.likedIMG} />
+                    <Text>{item.starData.count}</Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            );
+          }
+        })
+      ) : (
+        <Text style={globalstyles.h1}>레시피가 없어요 😭</Text>
+      )}
     </ScrollView>
   );
 };
@@ -72,6 +74,7 @@ const styles = StyleSheet.create({
   },
   foodIMG: {
     height: 180 * height,
+    borderRadius: 10 * scale,
     backgroundColor: 'green',
     borderBottomWidth: 1,
   },
