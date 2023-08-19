@@ -9,7 +9,7 @@ export const BottomTab = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <Tab.Screen name="Home" component={HomeRouter} />
+      <Tab.Screen name="HomeRouter" component={HomeRouter} />
       <Tab.Screen name="Mypage" component={Mypage} />
     </Tab.Navigator>
   );
