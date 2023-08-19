@@ -9,12 +9,12 @@ import {
   StyleSheet,
   useColorScheme,
 } from 'react-native';
-import {Home} from './screens/homeScreen/Home';
 import {Login} from './screens/loginScreen/Login';
 import {Splash} from './screens/Splash';
 import {Menu} from './screens/menuScreen/Menu';
 import {Detail} from './screens/detailScreen/Detail';
 import {Done} from './screens/doneScreen/Done';
+import {Home} from './screens/homeScreen/Home';
 
 const Stack = createStackNavigator();
 const App = () => {
