@@ -16,6 +16,7 @@ import {
   width,
 } from '../../../configs/globalStyles';
 
+
 export const Login = () => {
   const navigation = useNavigation();
   const [id, setId] = useState('');
