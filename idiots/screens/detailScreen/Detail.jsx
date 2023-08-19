@@ -80,15 +80,19 @@ export const Detail = () => {
         </View>
       </ScrollView>
       <View style={styles.submitwrapper}>
-        <TouchableOpacity style={styles.btn}>
-          <Text style={globalstyles.buttonText}>완료</Text>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={() => {
+            navigation.navigate('Custom');
+          }}>
+          <Text style={globalstyles.p1}>커스텀</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.submitbtn}
           onPress={() => {
-            navigation.navigate('Done');
+            navigation.navigate('Order');
           }}>
-          <Text style={globalstyles.buttonText}>12,000 주문하기</Text>
+          <Text style={globalstyles.p1}>12,000 주문하기</Text>
         </TouchableOpacity>
       </View>
     </View>

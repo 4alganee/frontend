@@ -15,6 +15,8 @@ import {Menu} from './screens/menuScreen/Menu';
 import {Detail} from './screens/detailScreen/Detail';
 import {Done} from './screens/doneScreen/Done';
 import {Home} from './screens/homeScreen/Home';
+import {Order} from './screens/orderScreen/Order';
+import {Custom} from './screens/customScreen/Custom';
 
 const Stack = createStackNavigator();
 const App = () => {
@@ -33,6 +35,8 @@ const App = () => {
             <Stack.Screen name="Menu" component={Menu} />
             <Stack.Screen name="Detail" component={Detail} />
             <Stack.Screen name="Done" component={Done} />
+            <Stack.Screen name="Order" component={Order} />
+            <Stack.Screen name="Custom" component={Custom} />
           </Stack.Group>
         </Stack.Navigator>
       </NavigationContainer>
