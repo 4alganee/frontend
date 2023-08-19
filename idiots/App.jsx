@@ -9,7 +9,7 @@ import {
   StyleSheet,
   useColorScheme,
 } from 'react-native';
-import {Home} from './screens/Home';
+import { Home } from './screens/homeScreen/Home';
 import {Login} from './screens/loginScreen/Login';
 import {Splash} from './screens/Splash';
 import {HomeRouter} from './screens/HomeRouter';
