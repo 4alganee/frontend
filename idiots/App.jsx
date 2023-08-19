@@ -9,9 +9,13 @@ import {
   StyleSheet,
   useColorScheme,
 } from 'react-native';
-import {Home} from './screens/Home';
+import {Home} from './screens/homeScreen/Home';
 import {Login} from './screens/Login';
 import {Splash} from './screens/Splash';
+import {HomeRouter} from './screens/HomeRouter';
+import {Menu} from './screens/menuScreen/Menu';
+import {Detail} from './screens/detailScreen/Detail';
+import {Done} from './screens/doneScreen/Done';
 
 const Stack = createStackNavigator();
 const App = () => {
@@ -22,8 +26,14 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Splash" component={Splash} />
-          <Stack.Screen name="Home" component={Home} />
+
           <Stack.Screen name="Login" component={Login} />
+          <Stack.Group>
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Menu" component={Menu} />
+            <Stack.Screen name="Detail" component={Detail} />
+            <Stack.Screen name="Done" component={Done} />
+          </Stack.Group>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
