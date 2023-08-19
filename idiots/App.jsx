@@ -10,16 +10,16 @@ import {
   useColorScheme,
 } from 'react-native';
 import {Home} from './screens/Home';
-import {Login} from './screens/Login';
+import {Login} from './screens/loginScreen/Login';
 import {Splash} from './screens/Splash';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator(); 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <SafeAreaView style={{flex: 1}}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NavigationContainer>
+      <NavigationContainer>       
         <Stack.Navigator>
           <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="Home" component={Home} />
