@@ -25,11 +25,12 @@ const App = () => {
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Splash" component={Splash} />
-
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Group>
+          <Stack.Group screenOptions={{headerShown: false}}>
+            <Stack.Screen name="Splash" component={Splash} />
+            <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Home" component={Home} />
+          </Stack.Group>
+          <Stack.Group>
             <Stack.Screen name="Menu" component={Menu} />
             <Stack.Screen name="Detail" component={Detail} />
             <Stack.Screen name="Done" component={Done} />
