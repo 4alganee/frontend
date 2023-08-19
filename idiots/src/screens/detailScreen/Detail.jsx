@@ -26,9 +26,10 @@ export const Detail = props => {
   return (
     <View style={styles.container}>
       <View style={styles.backButton}>
-        <TouchableOpacity onPress={() => {
-          navigation.navigate('Menu', {foodId: recipe.foodId});
-        }}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Menu', {foodId: recipe.foodId});
+          }}>
           <Text style={[globalstyles.h2_3, styles.backText]}> {'<'} Back</Text>
         </TouchableOpacity>
       </View>
@@ -42,16 +43,16 @@ export const Detail = props => {
             </TouchableOpacity>
           </View>
         </View> */}
-        <View style={{
-          height: 390 * height,
-          width: 390 * width,
-          alignItems: 'center',
-          justifyContent: 'flex-end',
-          paddingBottom: 16 * height,
-        }}
-        >
+        <View
+          style={{
+            height: 390 * height,
+            width: 390 * width,
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            paddingBottom: 16 * height,
+          }}>
           <Image source={{uri: recipe.image}} style={styles.img} />
-          <Image 
+          <Image
             source={require('../../../configs/assets/Rectangle.png')}
             style={styles.img2}
           />
@@ -67,24 +68,35 @@ export const Detail = props => {
                   </View>
                 </View>
                 <View style={styles.titlewrapper}>
-                  <Text style={[globalstyles.h1, {color: "white"}]}>{recipe.name}</Text>
+                  <Text style={[globalstyles.h1, {color: 'white'}]}>
+                    {recipe.name}
+                  </Text>
                 </View>
                 <View style={styles.tagwrapper}>
-                  <View style={[styles.tag, {backgroundColor: "#65DAFF"}]}>
-                    <Text style={[globalstyles.p1, {color: "white"}]}>{recipe.estimatedTime}</Text>
+                  <View style={[styles.tag, {backgroundColor: '#65DAFF'}]}>
+                    <Text style={[globalstyles.p1, {color: 'white'}]}>
+                      {recipe.estimatedTime}
+                    </Text>
                   </View>
-                  {recipe.tags ? (
-                    recipe.tags.map((item, index) => {
-                      return (
-                        <View key={index} style={[styles.tag, {backgroundColor: "#FF6565"}]}>
-                          <Text style={[globalstyles.p1, {color: "white"}]}>{item.recipeTag.name}</Text>
-                        </View>
-                      )   
-                    })) : null }
+                  {recipe.tags
+                    ? recipe.tags.map((item, index) => {
+                        return (
+                          <View
+                            key={index}
+                            style={[styles.tag, {backgroundColor: '#FF6565'}]}>
+                            <Text style={[globalstyles.p1, {color: 'white'}]}>
+                              {item.recipeTag.name}
+                            </Text>
+                          </View>
+                        );
+                      })
+                    : null}
                 </View>
               </View>
               <View style={styles.infowrapper}>
-                <Text numberOfLines={5} style={[globalstyles.h4, styles.text]}>{recipe.content}</Text>
+                <Text numberOfLines={5} style={[globalstyles.h4, styles.text]}>
+                  {recipe.content}
+                </Text>
               </View>
             </View>
           </View>
@@ -112,16 +124,21 @@ export const Detail = props => {
                       style={styles.profileimg}
                     />
                     <View style={styles.reviewtextwrapper}>
-                      <View style={{flexDirection:"row"}}>
+                      <View style={{flexDirection: 'row'}}>
                         <View style={styles.likedIMG}>
-                          <Text style={[globalstyles.h3, {color: 'red'}]}>♥</Text>
+                          <Text style={[globalstyles.h3, {color: 'red'}]}>
+                            ♥
+                          </Text>
                         </View>
-                        <View style={[styles.likedText, {marginRight: 4*width}]}>
+                        <View
+                          style={[styles.likedText, {marginRight: 4 * width}]}>
                           <Text style={globalstyles.h3}>{item.star}</Text>
                         </View>
                         <Text style={globalstyles.h3}>{item.user.name}</Text>
                       </View>
-                      <Text numberOfLines={2} style={globalstyles.p1}>{item.content}</Text>
+                      <Text numberOfLines={2} style={globalstyles.p1}>
+                        {item.content}
+                      </Text>
                     </View>
                   </View>
                 );
@@ -134,16 +151,20 @@ export const Detail = props => {
       </ScrollView>
       <View style={styles.submitwrapper}>
         <TouchableOpacity
-          style={styles.submitbtn}
+          style={styles.btn}
           onPress={() => {
             navigation.navigate('Custom');
           }}>
-          <Text style={globalstyles.p1}>{recipe.price}won Order!</Text>
+          <Text style={globalstyles.p1}>Custom</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.submitbtn}
           onPress={() => {
-            navigation.navigate('Order');
+            navigation.navigate('Order', {
+              estimatedTime: recipe.estimatedTime,
+              price: recipe.price,
+              foodId: recipe.foodId,
+            });
           }}>
           <Text style={globalstyles.p1}>{recipe.price}won Order!</Text>
         </TouchableOpacity>
@@ -204,8 +225,8 @@ const styles = StyleSheet.create({
   },
   tag: {
     backgroundColor: '#F2F2F2',
-    paddingLeft:12 * scale,
-    paddingRight:12 * scale,
+    paddingLeft: 12 * scale,
+    paddingRight: 12 * scale,
     paddingTop: 6 * height,
     paddingBottom: 6 * height,
     borderRadius: 15 * scale,
@@ -222,7 +243,7 @@ const styles = StyleSheet.create({
   },
   showMoreReviewWrapper: {
     flexDirection: 'row',
-    marginBottom:4 * height,
+    marginBottom: 4 * height,
   },
   revielistwwrapper: {
     rowGap: 10 * height,
