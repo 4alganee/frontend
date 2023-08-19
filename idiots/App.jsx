@@ -9,7 +9,6 @@ import {
   StyleSheet,
   useColorScheme,
 } from 'react-native';
-
 import {Login} from './screens/loginScreen/Login';
 import {Splash} from './screens/Splash';
 import {Menu} from './screens/menuScreen/Menu';
