@@ -1,14 +1,43 @@
-import {View, TextInput, StyleSheet, Image, Button} from 'react-native';
+import {View, TextInput, StyleSheet, Image, Button, Alert} from 'react-native';
 import { width, height } from '../../configs/globalStyles';
+import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+
 
 export const Login = () => {
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const navigation = useNavigation();
+  const validate = () => {
+    if (id !== 'admin' || password !== 'admin1234') {
+      Alert.alert('아이디 또는 비밀번호가 일치하지 않습니다')
+    }
+    else {
+      navigation.navigate('Home');
+    }
+
+  }
   return (
     <View style={styles.container}>
       <View style={styles.loginWrapper}>
         <View style={styles.logo}/>
-        <TextInput style={styles.inputBox} />
-        <TextInput style={styles.inputBox} />
-        <Button title="input button" style={styles.buttin} />
+        <TextInput 
+          style={styles.inputBox} 
+          placeholder="아이디를 입력하세요."
+          value={id}
+          onChangeText={text => setId(text)}
+          keyboardType="ascii-capable"  
+          autoCapitalize='none'
+        />
+        <TextInput 
+          style={styles.inputBox}
+          placeholder="비밀번호를 입력하세요."
+          value={password}
+          onChangeText={text => setPassword(text)}
+          keyboardType="ascii-capable"
+          autoCapitalize='none'
+        />
+        <Button title="submit" style={styles.buttin} onPress={validate}/>
       </View>
     </View>
   );
