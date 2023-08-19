@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   contentwrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     marginBottom: 20 * height,
   },
   foodIMG: {
@@ -169,6 +169,7 @@ const styles = StyleSheet.create({
     height: 150 * width,
     backgroundColor: 'red',
     borderRadius: 20 * scale,
+    alignItems:'flex-start'
   },
   userReviewWrapper: {
     justifyContent: 'center',
@@ -185,7 +186,6 @@ const styles = StyleSheet.create({
   userIMG: {
     width: 50 * width,
     height: 50 * width,
-    backgroundColor: 'blue',
   },
   userProfileWrapper: {
     height: 50 * height,

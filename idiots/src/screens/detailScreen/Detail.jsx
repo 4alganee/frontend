@@ -178,7 +178,6 @@ const styles = StyleSheet.create({
     width: 50 * width,
     height: 50 * width,
     borderRadius: 50 * width,
-    backgroundColor: 'red',
   },
   reviewtextwrapper: {
     width: 280 * width,
