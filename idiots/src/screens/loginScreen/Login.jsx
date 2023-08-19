@@ -1,7 +1,21 @@
 import {useNavigation} from '@react-navigation/native';
-import {View, TextInput, StyleSheet, Button, Alert} from 'react-native';
-import {height, width} from '../../../configs/globalStyles';
 import {useState} from 'react';
+import {
+  Alert,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import {
+  globalstyles,
+  height,
+  scale,
+  width,
+} from '../../../configs/globalStyles';
+
 
 export const Login = () => {
   const navigation = useNavigation();
@@ -18,25 +32,39 @@ export const Login = () => {
   return (
     <View style={styles.container}>
       <View style={styles.loginWrapper}>
-        <View style={styles.logo} />
+        <ImageBackground
+          source={require('../../../configs/assets/Icon.png')}
+          style={styles.logo}
+        />
         <TextInput
-          style={styles.inputBox}
+          style={[styles.inputBox, globalstyles.p2]}
           onChangeText={text => setId(text)}
           autoCapitalize="none"
+          placeholder="ID"
         />
         <TextInput
-          style={styles.inputBox}
+          style={[styles.inputBox, globalstyles.p2]}
           onChangeText={text => setPw(text)}
-          autoCapitalize='none'
+          autoCapitalize="none"
           secureTextEntry={true}
+          placeholder="Password"
         />
-        <Button
+        <TouchableOpacity
           title="submit"
+          style={styles.button}
           onPress={() => {
-            // validate();
-            navigation.navigate('BottomTab');
-          }}
-        />
+            validate();
+          }}>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <Text
+              style={[
+                globalstyles.p1,
+                {color: '#fff', lineHeight: 32 * height},
+              ]}>
+              Sign In
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -56,18 +84,22 @@ const styles = StyleSheet.create({
     rowGap: 10 * height,
   },
   logo: {
-    width: 50 * width,
-    height: 50 * width,
-    backgroundColor: 'black',
+    width: 124 * scale,
+    height: 124 * scale,
+    marginBottom: 64 * scale,
   },
   inputBox: {
     width: 300 * width,
-    height: 50 * height,
-    backgroundColor: 'gray',
+    height: 38 * height,
+    borderColor: '#727272',
+    borderWidth: 1 * scale,
+    borderRadius: 10 * scale,
+    paddingLeft: 16 * scale,
   },
   button: {
     width: 300 * width,
-    height: 50 * height,
-    backgroundColor: 'black',
+    height: 38 * height,
+    borderRadius: 10 * scale,
+    backgroundColor: '#FF4949',
   },
 });
