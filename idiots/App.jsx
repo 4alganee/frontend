@@ -16,7 +16,7 @@ import {Menu} from './src/screens/menuScreen/Menu';
 import {Detail} from './src/screens/detailScreen/Detail';
 import {Done} from './src/screens/doneScreen/Done';
 import {Order} from './src/screens/orderScreen/Order';
-import {Custom} from './src/screens/customScreen/Custom';
+import {Custom} from './src/screens/FramePicture.jsx/Custom';
 import {Review} from './src/screens/reviewScreen/Review';
 import {BottomTab} from './src/screens/BottomTab';
 
