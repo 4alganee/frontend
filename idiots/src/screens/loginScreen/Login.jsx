@@ -1,5 +1,5 @@
 import {View, TextInput, StyleSheet, Image, Button} from 'react-native';
-import {width, height} from '../../../configs/globalStyles';
+import {width, height} from '../../configs/globalStyles';
 
 export const Login = () => {
   return (
