@@ -13,28 +13,36 @@ export const globalstyles = StyleSheet.create({
   h1: {
     fontSize: 20 * scale,
     fontWeight: '700',
+    fontFamily: 'SUITVariable-Regular',
   },
   h2: {
     fontSize: 18 * scale,
     fontWeight: '700',
+    fontFamily: 'SUITVariable-Regular',
   },
   h3: {
     fontSize: 16 * scale,
     fontWeight: '700',
+    fontFamily: 'SUITVariable-Regular',
   },
   h4: {
     fontSize: 14 * scale,
     fontWeight: '700',
+    fontFamily: 'SUITVariable-Regular',
   },
   h5: {
     fontSize: 12 * scale,
     fontWeight: '700',
+    fontFamily: 'SUITVariable-Regular',
   },
   p1: {
     fontSize: 14 * scale,
     fontWeight: '500',
+    fontFamily: 'SUITVariable-Regular',
   },
   p2: {
     fontSize: 12 * scale,
+    fontWeight: '500',
+    fontFamily: 'SUITVariable-Regular',
   },
 });

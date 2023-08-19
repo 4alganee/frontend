@@ -9,15 +9,16 @@ import {
   StyleSheet,
   useColorScheme,
 } from 'react-native';
-import {Login} from './screens/loginScreen/Login';
-import {Splash} from './screens/Splash';
-import {Menu} from './screens/menuScreen/Menu';
-import {Detail} from './screens/detailScreen/Detail';
-import {Done} from './screens/doneScreen/Done';
-import {Home} from './screens/homeScreen/Home';
-import {Order} from './screens/orderScreen/Order';
-import {Custom} from './screens/customScreen/Custom';
-import { Review } from './screens/reviewScreen/Review';
+import {Splash} from './src/screens/Splash';
+import {Login} from './src/screens/loginScreen/Login';
+import {Home} from './src/screens/homeScreen/Home';
+import {Menu} from './src/screens/menuScreen/Menu';
+import {Detail} from './src/screens/detailScreen/Detail';
+import {Done} from './src/screens/doneScreen/Done';
+import {Order} from './src/screens/orderScreen/Order';
+import {Custom} from './src/screens/customScreen/Custom';
+import {Review} from './src/screens/reviewScreen/Review';
+import {BottomTab} from './src/screens/BottomTab';
 
 const Stack = createStackNavigator();
 const App = () => {
@@ -28,17 +29,8 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Group screenOptions={{headerShown: false}}>
-            <Stack.Screen name="Splash" component={Splash} />
             <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="Home" component={Home} />
-          </Stack.Group>
-          <Stack.Group>
-            <Stack.Screen name="Menu" component={Menu} />
-            <Stack.Screen name="Detail" component={Detail} />
-            <Stack.Screen name="Done" component={Done} />
-            <Stack.Screen name="Order" component={Order} />
-            <Stack.Screen name="Custom" component={Custom} />
-            <Stack.Screen name="Review" component={Review} />
+            <Stack.Screen name="BottomTab" component={BottomTab} />
           </Stack.Group>
         </Stack.Navigator>
       </NavigationContainer>
