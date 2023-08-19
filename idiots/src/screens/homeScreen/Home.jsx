@@ -4,10 +4,14 @@ import {useEffect, useState} from 'react';
 import {
   Button,
   Image,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
+  Dimensions,
+  FlatList,
+  ImageBackground
 } from 'react-native';
 import {
   globalstyles,
@@ -15,6 +19,8 @@ import {
   scale,
   width,
 } from '../../../configs/globalStyles';
+
+const screenWidth = Dimensions.get('window').width;
 
 export const Home = () => {
   const navigation = useNavigation();
@@ -33,36 +39,83 @@ export const Home = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
+  console.log(menu)
   return (
     <View style={styles.container}>
-      <View style={styles.wrapper}>
-        <Text style={globalstyles.h1}>
-          안녕하세요 오늘의 먹보님 오늘 키의 순두부 라면이 업데이트 되었어요!
+      <View style={style=styles.advertise}>
+        <Text style={globalstyles.p4}>
+          Get your 10% discount on your first order.
         </Text>
-        <View style={styles.imgwrapper} />
-        <Text style={globalstyles.h1}>추천 메뉴</Text>
-        <View style={styles.menuwrapper}>
-          {loading ? (
-            menu.map((item, index) => {
-              return (
-                <TouchableOpacity
-                  key={item.id}
-                  onPress={() => {
-                    navigation.navigate('Menu', {foodId: item.id});
-                  }}>
-                  <View style={styles.menu}>
-                    <Image source={{uri: item.image}} style={styles.menuimg} />
-                    <Text style={globalstyles.h3}>{item.name}</Text>
-                  </View>
-                </TouchableOpacity>
-              );
-            })
-          ) : (
-            <Text style={globalstyles.h1}>
-              주문 할 수 있는 식당이 없어요 😭
-            </Text>
-          )}
+      </View>
+      <View style={styles.wrapper}>
+        <View>
+          <Text style={globalstyles.h1}>
+            We 💓 your food
+          </Text>
+          <Text style={globalstyles.h2}>
+            Your fully customizable foods are here.
+          </Text>
+        </View> 
+        <ScrollView>
+          <Image 
+            source={require('../../../configs/assets/SoftTofu.png')}
+            style={styles.imgwrapper}
+          />
+        </ScrollView>
+        <Text style={globalstyles.h1}>Menus</Text>
+        <View style={styles.infoWrapper}>
+          <View style={styles.rowwrapper}>
+            <TouchableOpacity onPress={() => {
+                  navigation.navigate('Menu', {foodId: menu[0].id});
+                }}>
+              <View style={styles.menuWrapper}>
+                <ImageBackground
+                  source={require('../../../configs/assets/Tuckbokgi.png')}
+                  style={styles.menuimg}
+                />
+                <Text style={globalstyles.h2_2}>Tteok-bokki</Text>
+                <Text style={[globalstyles.p2, styles.content]}>Your own korean taste.</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                  navigation.navigate('Menu', {foodId: menu[1].id});
+                }}>
+              <View style={styles.menuWrapper}>
+                <ImageBackground 
+                  source={require('../../../configs/assets/Rameon.png')}
+                  style={styles.menuimg}
+                />
+                <Text style={globalstyles.h2_2}>Rameon</Text>
+                <Text style={[globalstyles.p2, styles.content]}>Everyone loves this.</Text>
+              </View>
+            </TouchableOpacity >
+          </View>
+          <View style={styles.rowwrapper}>
+            <TouchableOpacity onPress={() => {
+                  navigation.navigate('Menu', {foodId: menu[2].id});
+                }}>
+              <View style={styles.menuWrapper}>
+                <ImageBackground
+                  source={require('../../../configs/assets/Chicken.png')}
+                  style={styles.menuimg}
+                />
+                <Text style={globalstyles.h2_2}>Chicken</Text>
+                <Text style={[globalstyles.p2, styles.content]}>Grab your hot chicken right away.</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                  navigation.navigate('Menu', {foodId: menu[3].id});
+                }}>
+              <View style={styles.menuWrapper}>
+                <ImageBackground
+                  source={require('../../../configs/assets/Coffee.png')}
+                  style={styles.menuimg}
+                />
+                <Text style={globalstyles.h2_2}>Coffee</Text>
+                <Text style={[globalstyles.p2, styles.content]}>Get your coffee in a ner way.</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </View>
@@ -71,32 +124,60 @@ export const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16 * scale,
-    backgroundColor: 'white',
+    backgroundColor: '#F6F6F9',
   },
   wrapper: {
-    rowGap: 10 * height,
+    rowGap: 8 * height,
+    padding: 14 * scale,
+  },
+  advertise: {
+    height: 32 * height,
+    width: '100%',
+    backgroundColor: "#FFC6C6",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   imgwrapper: {
-    height: 300,
-    width: '100%',
-    backgroundColor: 'red',
+    width: "100%",
+    height: screenWidth * (180 / 362),
+    resizeMode: 'contain',
   },
-  menuwrapper: {
+  infoWrapper: {
+    width: '100%',
+    rowGap: 14 * width,
+  },
+  rowwrapper: {
     flexDirection: 'row',
-    alignItems: 'center',
-    columnGap: 10 * width,
+    // justifyContent: 'space-between',
+    width: '100%',
+    gap: 14 * width,
+  },
+  menuWrapper: {
+    width: 174 * width,
+    height: 148 * height,
+    overflow: 'hidden',
+    paddingTop: 12 * height,
+    paddingLeft: 14 * width,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 18 * scale,
   },
   menu: {
-    height: 100 * height,
-    width: 100 * width,
+    height: 200 * height,
+    width: 200 * width,
     justifyContent: 'center',
     alignItems: 'center',
     rowGap: 10 * height,
   },
   menuimg: {
-    width: 80 * width,
-    height: 80 * height,
-    borderRadius: 50 * scale,
+    position: 'absolute',
+    width: 136 * width,
+    height: 136 * height,
+    top: 40 * height,
+    left: 60 * width,
+    resizeMode: 'fill',
   },
+  content: {
+    width: 91 * width,
+    color: "#7A7A7A"
+  }
 });

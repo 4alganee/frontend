@@ -27,10 +27,11 @@ export const Login = () => {
         <TextInput
           style={styles.inputBox}
           onChangeText={text => setPw(text)}
-          autoCapitalize="none"
+          autoCapitalize='none'
+          secureTextEntry={true}
         />
         <Button
-          title="input button"
+          title="submit"
           onPress={() => {
             // validate();
             navigation.navigate('BottomTab');

@@ -6,8 +6,13 @@ import {Home} from './homeScreen/Home';
 import {Menu} from './menuScreen/Menu';
 import {Order} from './orderScreen/Order';
 import {Review} from './reviewScreen/Review';
+import { View, TouchableOpacity, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { globalstyles, width, height } from '../../configs/globalStyles';
+import { StyleSheet } from 'react-native';
 
 export const HomeRouter = () => {
+  const navigation = useNavigation();
   const stack = createStackNavigator();
   return (
     <stack.Navigator>
@@ -17,7 +22,19 @@ export const HomeRouter = () => {
         options={{headerShown: false}}
       />
       <stack.Screen name="Menu" component={Menu} />
-      <stack.Screen name="Detail" component={Detail} />
+      <stack.Screen name="Detail" component={Detail} 
+        options={{
+          headerShown: false,
+          // headerLeft: () => (
+          //   // <View style={styles.backButton}>
+          //   //   <TouchableOpacity onPress={() => {
+          //   //   navigation.goBack();
+          //   //   }}>
+          //   //     <Text style={[globalstyles.h2_3, styles.backText]}> {'<'} 123</Text>
+          //   //   </TouchableOpacity>
+          //   // </View>
+          // )
+        }}/>
       <stack.Screen name="Done" component={Done} />
       <stack.Screen name="Order" component={Order} />
       <stack.Screen name="Custom" component={Custom} />
@@ -25,3 +42,14 @@ export const HomeRouter = () => {
     </stack.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  backButton: {
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    paddingLeft: 8 * width,
+  },
+  backText: {
+    color: 'red',
+  },
+});
