@@ -39,7 +39,7 @@ export const Home = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
+  console.log(menu)
   return (
     <View style={styles.container}>
       <View style={style=styles.advertise}>

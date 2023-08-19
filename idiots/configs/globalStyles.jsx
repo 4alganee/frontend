@@ -25,6 +25,11 @@ export const globalstyles = StyleSheet.create({
     fontWeight: '700',
     fontFamily: 'SUITVariable-Regular',
   },
+  h2_3: {
+    fontSize: 18 * scale,
+    fontWeight: '500',
+    fontFamily: 'SUITVariable-Regular',
+  },
   h3: {
     fontSize: 16 * scale,
     fontWeight: '700',
