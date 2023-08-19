@@ -17,6 +17,7 @@ import {Done} from './screens/doneScreen/Done';
 import {Home} from './screens/homeScreen/Home';
 import {Order} from './screens/orderScreen/Order';
 import {Custom} from './screens/customScreen/Custom';
+import { Review } from './screens/reviewScreen/Review';
 
 const Stack = createStackNavigator();
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
             <Stack.Screen name="Done" component={Done} />
             <Stack.Screen name="Order" component={Order} />
             <Stack.Screen name="Custom" component={Custom} />
+            <Stack.Screen name="Review" component={Review} />
           </Stack.Group>
         </Stack.Navigator>
       </NavigationContainer>
