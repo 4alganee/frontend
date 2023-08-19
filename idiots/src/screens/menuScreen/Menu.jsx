@@ -93,7 +93,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.04,
     margin: 10 * scale,
-    borderRadius: 10 * scale,
   },
   foodIMG: {
     height: 180 * height,
