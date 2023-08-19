@@ -97,11 +97,11 @@ export const Detail = props => {
       </ScrollView>
       <View style={styles.submitwrapper}>
         <TouchableOpacity
-          style={styles.btn}
+          style={styles.submitbtn}
           onPress={() => {
             navigation.navigate('Custom');
           }}>
-          <Text style={globalstyles.p1}>Custom</Text>
+          <Text style={globalstyles.p1}>{recipe.price}won Order!</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.submitbtn}
