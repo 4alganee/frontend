@@ -4,7 +4,7 @@ import { height, scale, width } from '../../../configs/globalStyles';
 
 export const Order = () => {
   const [sidebarWidth, setSidebarWidth] = useState(0);
-  const [totalTime, setTotalTime] = useState(1000); // 10초 [ms
+  const [totalTime, setTotalTime] = useState(10000); // 10초 [ms
   const [circlePosition, setCirclePosition] = useState(0);
 
   useEffect(() => {
