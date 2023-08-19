@@ -1,13 +1,10 @@
-import {View, Text, Image} from 'react-native';
-import {StyleSheet} from 'react-native';
+import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {
   globalstyles,
   height,
   scale,
   width,
 } from '../../../configs/globalStyles';
-import {ScrollView} from 'react-native';
-import {useEffect, useState} from 'react';
 
 export const Review = props => {
   const recipe = props.route.params;
@@ -16,86 +13,39 @@ export const Review = props => {
   console.log(review);
   return (
     <View style={styles.container}>
-      <View style={styles.totalScoreWrapper}>
-        <View style={styles.scoresWrapper}>
-          <Text style={styles.bigScore}>4</Text>
-          <View style={styles.heartwrapper}>
-            {starcount.map((item, index) => {
-              if (item <= review.star) {
-                return (
-                  <Text
-                    style={[globalstyles.p2, {color: 'rgba(177, 177, 177, 1)'}]}
-                    key={item}>
-                    ♥
-                  </Text>
-                );
-              } else {
-                return (
-                  <Text
-                    key={item}
-                    style={[
-                      globalstyles.p2,
-                      {color: '#rgba(255, 136, 130, 1)'},
-                    ]}>
-                    ♥
-                  </Text>
-                );
-              }
-            })}
-          </View>
-        </View>
-        <View style={styles.border} />
-
-        <View style={styles.detailReviewWrapper}>
-          <View style={styles.detailReview}>
-            <Text style={globalstyles.p1}>맛</Text>
-            <View style={styles.heartwrapper}>
-              <Text style={globalstyles.p2}>♥♥♥♥♥</Text>
-              <Text style={globalstyles.p2}>5.0</Text>
-            </View>
-          </View>
-          <View style={styles.detailReview}>
-            <Text style={globalstyles.p1}>추천도</Text>
-            <View style={styles.heartwrapper}>
-              <Text style={globalstyles.p2}>♥♥♥♥♥</Text>
-              <Text style={globalstyles.p2}>5.0</Text>
-            </View>
-          </View>
-          <View style={styles.detailReview}>
-            <Text style={globalstyles.p1}>시간 정확도</Text>
-            <View style={styles.heartwrapper}>
-              <Text style={globalstyles.p2}>♥♥♥♥♥</Text>
-              <Text style={globalstyles.p2}>5.0</Text>
-            </View>
-          </View>
-        </View>
+      <View>
+        <Text style={globalstyles.h2_2}>{recipe.reviews.length} Reviews</Text>
       </View>
       <ScrollView>
         {review.length > 0 ? (
           review.map((item, index) => {
             return (
               <View style={styles.contentwrapper} key={item.id}>
-                <Image source={{uri: item.image}} style={styles.foodIMG} />
                 <View style={styles.userReviewWrapper}>
                   <View style={styles.userInfoWrapper}>
                     <Image
                       source={{uri: item.user.image}}
                       style={styles.userIMG}
                     />
-                    <View style={styles.userProfileWrapper}>
-                      <View style={{flexDirection: 'row'}}>
-                        <Text style={[styles.tag, globalstyles.p2]}>
-                          10회 이상 구매
-                        </Text>
-                      </View>
-                      <View style={styles.userNameWrapper}>
-                        <Text style={globalstyles.h3}>{item.user.name}</Text>
-                        <Text style={globalstyles.p2}>2021.09.09</Text>
+                    <View style={{justifyContent: 'center'}}>
+                      <View style={styles.userProfileWrapper}>
+                        <View style={styles.userNameWrapper}>
+                          <Text style={globalstyles.h3}>{item.user.name}</Text>
+                          <Text style={[globalstyles.p2, {color: '#888888'}]}>
+                            2021.09.09
+                          </Text>
+                        </View>
+                        <View style={{flexDirection: 'row'}}>
+                          <Text style={[styles.tag, globalstyles.p2]}>
+                            ♥ {item.star}
+                          </Text>
+                        </View>
                       </View>
                     </View>
                   </View>
                   <Text style={globalstyles.p1}>{item.content}</Text>
                 </View>
+                <Image source={{uri: item.image}} style={styles.foodIMG} />
               </View>
             );
           })
@@ -110,7 +60,7 @@ export const Review = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#F6F6F9',
     gap: 20 * scale,
     padding: 16 * scale,
   },
@@ -159,23 +109,32 @@ const styles = StyleSheet.create({
     height: 24 * height,
   },
   contentwrapper: {
-    flexDirection: 'row',
+    // flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
     marginBottom: 20 * height,
+    backgroundColor: 'white',
+    borderRadius: 10 * scale,
+    shadowOffset: {
+      width: 0,
+      height: 2 * scale,
+    },
+    shadowOpacity: 0.04,
+    paddingHorizontal: 12 * scale,
+    paddingVertical: 16 * scale,
+    rowGap: 12 * scale,
   },
   foodIMG: {
-    width: 150 * width,
-    height: 150 * width,
-    backgroundColor: 'red',
-    borderRadius: 20 * scale,
-    alignItems:'flex-start'
+    width: 160 * width,
+    height: 160 * width,
+    borderRadius: 10 * scale,
+    alignItems: 'flex-start',
   },
   userReviewWrapper: {
     justifyContent: 'center',
     alignItems: 'flex-start',
-    width: 200 * width,
-    gap: 10 * width,
+    width: 338 * width,
+    gap: 12 * width,
   },
   userInfoWrapper: {
     flexDirection: 'row',
@@ -184,15 +143,16 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   userIMG: {
-    width: 50 * width,
-    height: 50 * width,
+    width: 48 * width,
+    height: 48 * width,
   },
   userProfileWrapper: {
-    height: 50 * height,
-    justifyContent: 'space-between',
+    height: 48 * height,
+    justifyContent: 'center',
   },
   tag: {
-    backgroundColor: '#F2F2F2',
+    // backgroundColor: '#F2F2F2',
+    color: '#FF3B30',
     padding: 5 * scale,
     borderRadius: 5 * scale,
   },
