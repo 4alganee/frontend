@@ -1,5 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
-import {Button, Text, View} from 'react-native';
+import {Button, StyleSheet, Text, View} from 'react-native';
+import {globalstyles} from '../../configs/globalStyles';
 
 export const Menu = () => {
   const navigation = useNavigation();
@@ -14,3 +15,8 @@ export const Menu = () => {
     </View>
   );
 };
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
