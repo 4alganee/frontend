@@ -29,7 +29,7 @@ export const Menu = props => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(foodId)
+
   return (
     <ScrollView style={styles.container}>
       {loading ? (
