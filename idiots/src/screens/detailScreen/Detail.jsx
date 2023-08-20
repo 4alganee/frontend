@@ -25,24 +25,7 @@ export const Detail = props => {
   // console.log(recipe);
   return (
     <View style={styles.container}>
-      <View style={styles.backButton}>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('Menu', {foodId: recipe.foodId});
-          }}>
-          <Text style={[globalstyles.h2_3, styles.backText]}> {'<'} Back</Text>
-        </TouchableOpacity>
-      </View>
       <ScrollView>
-        {/* <View>
-          <View style={styles.backButton}>
-            <TouchableOpacity onPress={() => {
-              navigation.navigate('Menu', {foodId: recipe.foodId});
-            }}>
-              <Text style={[globalstyles.h2_3, styles.backText]}> {'<'} Back</Text>
-            </TouchableOpacity>
-          </View>
-        </View> */}
         <View
           style={{
             height: 390 * height,
@@ -272,7 +255,7 @@ const styles = StyleSheet.create({
     borderRadius: 10 * scale,
   },
   btn: {
-    backgroundColor: 'B1B1B1',
+    backgroundColor: '#B1B1B1',
     width: 125 * width,
     height: 45 * height,
     borderRadius: 10 * scale,
