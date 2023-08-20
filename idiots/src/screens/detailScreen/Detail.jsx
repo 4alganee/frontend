@@ -160,11 +160,7 @@ export const Detail = props => {
         <TouchableOpacity
           style={styles.submitbtn}
           onPress={() => {
-            navigation.navigate('Order', {
-              estimatedTime: recipe.estimatedTime,
-              price: recipe.price,
-              foodId: recipe.foodId,
-            });
+            navigation.navigate('Order', {estimatedTime: recipe.estimatedTime});
           }}>
           <Text style={[globalstyles.p1, styles.text]}>
             ₩{comma(recipe.price)} Place Order
