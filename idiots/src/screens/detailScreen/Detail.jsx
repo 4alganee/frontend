@@ -155,7 +155,7 @@ export const Detail = props => {
           onPress={() => {
             navigation.navigate('Custom', {recipe});
           }}>
-          <Text style={globalstyles.p1}>Custom</Text>
+          <Text style={[globalstyles.p1, styles.text]}>Custom</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.submitbtn}
@@ -166,7 +166,7 @@ export const Detail = props => {
               foodId: recipe.foodId,
             });
           }}>
-          <Text style={globalstyles.p1}>
+          <Text style={[globalstyles.p1, styles.text]}>
             ₩{comma(recipe.price)} Place Order
           </Text>
         </TouchableOpacity>
@@ -276,16 +276,16 @@ const styles = StyleSheet.create({
     borderRadius: 10 * scale,
   },
   btn: {
-    backgroundColor: '#F2F2F2',
-    width: 100 * width,
+    backgroundColor: 'B1B1B1',
+    width: 125 * width,
     height: 45 * height,
     borderRadius: 10 * scale,
     justifyContent: 'center',
     alignItems: 'center',
   },
   submitbtn: {
-    backgroundColor: '#FFD600',
-    width: 250 * width,
+    backgroundColor: '#FF4949',
+    width: 235 * width,
     height: 45 * height,
     borderRadius: 10 * scale,
     justifyContent: 'center',

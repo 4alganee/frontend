@@ -6,16 +6,16 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+
 import {
   globalstyles,
   height,
   scale,
   width,
 } from '../../../configs/globalStyles';
-
 
 export const Login = () => {
   const navigation = useNavigation();
