@@ -36,7 +36,11 @@ export const HomeRouter = () => {
           // )
         }}/>
       <stack.Screen name="Done" component={Done} />
-      <stack.Screen name="Order" component={Order} />
+      <stack.Screen 
+        name="Order" 
+        component={Order} 
+        options={{headerShown: false}}
+        />
       <stack.Screen name="Custom" component={Custom} />
       <stack.Screen name="Review" component={Review} />
     </stack.Navigator>

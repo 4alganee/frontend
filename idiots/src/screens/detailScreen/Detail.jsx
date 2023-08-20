@@ -143,7 +143,7 @@ export const Detail = props => {
         <TouchableOpacity
           style={styles.submitbtn}
           onPress={() => {
-            navigation.navigate('Order');
+            navigation.navigate('Order', {estimatedTime: recipe.estimatedTime});
           }}>
           <Text style={globalstyles.p1}>{recipe.price}won Order!</Text>
         </TouchableOpacity>
