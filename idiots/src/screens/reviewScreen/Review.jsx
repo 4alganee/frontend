@@ -10,7 +10,7 @@ export const Review = props => {
   const recipe = props.route.params;
   const review = recipe.reviews;
   const starcount = [1, 2, 3, 4, 5];
-  console.log(review);
+  // console.log(review);
   return (
     <View style={styles.container}>
       <View>

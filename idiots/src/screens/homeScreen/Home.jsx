@@ -2,16 +2,14 @@ import {useNavigation} from '@react-navigation/native';
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import {
-  Button,
+  Dimensions,
   Image,
+  ImageBackground,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  Dimensions,
-  FlatList,
-  ImageBackground
 } from 'react-native';
 import {
   globalstyles,
@@ -39,25 +37,23 @@ export const Home = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(menu)
+  // console.log(menu)
   return (
     <View style={styles.container}>
-      <View style={style=styles.advertise}>
+      <View style={(style = styles.advertise)}>
         <Text style={globalstyles.p4}>
           Get your 10% discount on your first order.
         </Text>
       </View>
       <View style={styles.wrapper}>
         <View>
-          <Text style={globalstyles.h1}>
-            We 💓 your food
-          </Text>
+          <Text style={globalstyles.h1}>We 💓 your food</Text>
           <Text style={globalstyles.h2}>
             Your fully customizable foods are here.
           </Text>
-        </View> 
+        </View>
         <ScrollView>
-          <Image 
+          <Image
             source={require('../../../configs/assets/SoftTofu.png')}
             style={styles.imgwrapper}
           />
@@ -65,54 +61,66 @@ export const Home = () => {
         <Text style={globalstyles.h1}>Menus</Text>
         <View style={styles.infoWrapper}>
           <View style={styles.rowwrapper}>
-            <TouchableOpacity onPress={() => {
-                  navigation.navigate('Menu', {foodId: menu[0].id});
-                }}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Menu', {foodId: menu[0].id});
+              }}>
               <View style={styles.menuWrapper}>
                 <ImageBackground
                   source={require('../../../configs/assets/Tuckbokgi.png')}
                   style={styles.menuimg}
                 />
                 <Text style={globalstyles.h2_2}>Tteok-bokki</Text>
-                <Text style={[globalstyles.p2, styles.content]}>Your own korean taste.</Text>
+                <Text style={[globalstyles.p2, styles.content]}>
+                  Your own korean taste.
+                </Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => {
-                  navigation.navigate('Menu', {foodId: menu[1].id});
-                }}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Menu', {foodId: menu[1].id});
+              }}>
               <View style={styles.menuWrapper}>
-                <ImageBackground 
+                <ImageBackground
                   source={require('../../../configs/assets/Rameon.png')}
                   style={styles.menuimg}
                 />
                 <Text style={globalstyles.h2_2}>Rameon</Text>
-                <Text style={[globalstyles.p2, styles.content]}>Everyone loves this.</Text>
+                <Text style={[globalstyles.p2, styles.content]}>
+                  Everyone loves this.
+                </Text>
               </View>
-            </TouchableOpacity >
+            </TouchableOpacity>
           </View>
           <View style={styles.rowwrapper}>
-            <TouchableOpacity onPress={() => {
-                  navigation.navigate('Menu', {foodId: menu[2].id});
-                }}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Menu', {foodId: menu[2].id});
+              }}>
               <View style={styles.menuWrapper}>
                 <ImageBackground
                   source={require('../../../configs/assets/Chicken.png')}
                   style={styles.menuimg}
                 />
                 <Text style={globalstyles.h2_2}>Chicken</Text>
-                <Text style={[globalstyles.p2, styles.content]}>Grab your hot chicken right away.</Text>
+                <Text style={[globalstyles.p2, styles.content]}>
+                  Grab your hot chicken right away.
+                </Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => {
-                  navigation.navigate('Menu', {foodId: menu[3].id});
-                }}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Menu', {foodId: menu[3].id});
+              }}>
               <View style={styles.menuWrapper}>
                 <ImageBackground
                   source={require('../../../configs/assets/Coffee.png')}
                   style={styles.menuimg}
                 />
                 <Text style={globalstyles.h2_2}>Coffee</Text>
-                <Text style={[globalstyles.p2, styles.content]}>Get your coffee in a ner way.</Text>
+                <Text style={[globalstyles.p2, styles.content]}>
+                  Get your coffee in a ner way.
+                </Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -133,12 +141,12 @@ const styles = StyleSheet.create({
   advertise: {
     height: 32 * height,
     width: '100%',
-    backgroundColor: "#FFC6C6",
+    backgroundColor: '#FFC6C6',
     justifyContent: 'center',
     alignItems: 'center',
   },
   imgwrapper: {
-    width: "100%",
+    width: '100%',
     height: screenWidth * (180 / 362),
     resizeMode: 'contain',
   },
@@ -178,6 +186,6 @@ const styles = StyleSheet.create({
   },
   content: {
     width: 91 * width,
-    color: "#7A7A7A"
-  }
+    color: '#7A7A7A',
+  },
 });
