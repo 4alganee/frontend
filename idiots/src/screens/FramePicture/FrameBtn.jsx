@@ -101,8 +101,20 @@ export const FrameBtn = () => {
   };
   return (
     <>
-      <TouchableOpacity onPress={openModal}>
-        <Text>Make your own photo📸</Text>
+      <TouchableOpacity style={{width:'100%', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            width: '100%',
+            backgroundColor: '#FF4949',
+            borderRadius: 10 * scale,
+            paddingTop: 14 * height,
+            paddingBottom: 14 * height,
+            gap: 10 * width,
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginBottom: 10 * height,
+          }} onPress={openModal}>
+        <Text style={[globalstyles.h3, {color:'white'}]}>Make your own photo📸</Text>
       </TouchableOpacity>
 
       {result && (
