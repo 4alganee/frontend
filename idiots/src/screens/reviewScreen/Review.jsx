@@ -10,7 +10,7 @@ export const Review = props => {
   const recipe = props.route.params;
   const review = recipe.reviews;
   const starcount = [1, 2, 3, 4, 5];
-  console.log(review);
+  // console.log(review);
   return (
     <View style={styles.container}>
       <View>
@@ -50,7 +50,7 @@ export const Review = props => {
             );
           })
         ) : (
-          <Text>리뷰가 없어요 😭</Text>
+          <Text style={globalstyles.h3}>There is no review 😭</Text>
         )}
       </ScrollView>
     </View>
