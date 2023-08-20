@@ -29,7 +29,6 @@ export const Menu = props => {
   useEffect(() => {
     fetchData();
   }, []);
-
   return (
     <ScrollView style={styles.container}>
       {loading ? (

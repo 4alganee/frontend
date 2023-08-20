@@ -2,12 +2,14 @@ import {useNavigation} from '@react-navigation/native';
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import {
+  Dimensions,
+  Image,
+  ImageBackground,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  Dimensions,
-  ImageBackground,
 } from 'react-native';
 import {
   globalstyles,
@@ -124,7 +126,6 @@ export const Home = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
   return (
     <View style={styles.container}>
       <View style={(style = styles.advertise)}>

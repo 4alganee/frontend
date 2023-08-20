@@ -1,6 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
 import {
-  Button,
   Image,
   ScrollView,
   StyleSheet,
@@ -14,6 +13,7 @@ import {
   scale,
   width,
 } from '../../../configs/globalStyles';
+import {comma} from '../../../util';
 
 export const Detail = props => {
   const recipe = props.route.params;
@@ -22,7 +22,7 @@ export const Detail = props => {
   const imgSrc = {
     uri: recipe.image,
   };
-  console.log(recipe);
+  // console.log(recipe);
   return (
     <View style={styles.container}>
       <View style={styles.backButton}>
@@ -153,7 +153,7 @@ export const Detail = props => {
         <TouchableOpacity
           style={styles.btn}
           onPress={() => {
-            navigation.navigate('Custom');
+            navigation.navigate('Custom', {recipe});
           }}>
           <Text style={[globalstyles.p1, styles.text]}>Custom</Text>
         </TouchableOpacity>
@@ -167,7 +167,7 @@ export const Detail = props => {
             });
           }}>
           <Text style={[globalstyles.p1, styles.text]}>
-            {recipe.price}won Order!
+            ₩{comma(recipe.price)} Place Order
           </Text>
         </TouchableOpacity>
       </View>
