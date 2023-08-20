@@ -1,11 +1,14 @@
-
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import { globalstyles, height, scale, width } from '../../../configs/globalStyles';
-import { FrameBtn } from '../FramePicture/FrameBtn';
-import { TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-
+import React, {useState, useEffect} from 'react';
+import {View, Text, StyleSheet, Image} from 'react-native';
+import {
+  globalstyles,
+  height,
+  scale,
+  width,
+} from '../../../configs/globalStyles';
+import {FrameBtn} from '../FramePicture/FrameBtn';
+import {TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 export const Order = props => {
   const navigation = useNavigation();
@@ -16,7 +19,7 @@ export const Order = props => {
   const [remainTime, setRemainTime] = useState(0);
   const [validate, setValidate] = useState(false);
   let totalSeconds = 0;
-  
+
   for (const part of timeParts) {
     if (part.includes('m')) {
       totalSeconds += parseInt(part) * 60; // Convert minutes to seconds
@@ -96,37 +99,51 @@ export const Order = props => {
         </View>
       </View>
 
-      <View style={{justifyContent:'space-between'}}>
+      <View style={{justifyContent: 'space-between'}}>
         <View style={styles.timeBarWrapper}>
           <View style={styles.sidebarContainer}>
-            <View style={[styles.sidebar, { width: `${sidebarWidth}%` }]}/>
+            <View style={[styles.sidebar, {width: `${sidebarWidth}%`}]} />
             <View style={styles.PngWrapper}>
-              <Image source={require('../../../configs/assets/Cobot.png')} style={styles.cobotStyle}/>
-              <View style={{width: 8 * width, height: '100%', backgroundColor:'red', borderRadius: 200}}/>
+              <Image
+                source={require('../../../configs/assets/Cobot.png')}
+                style={styles.cobotStyle}
+              />
+              <View
+                style={{
+                  width: 8 * width,
+                  height: '100%',
+                  backgroundColor: 'red',
+                  borderRadius: 200,
+                }}
+              />
             </View>
           </View>
         </View>
-        <View style={{justifyContent:"space-between"}}>
+        <View style={{justifyContent: 'space-between'}}>
           <View style={styles.process}>
             <Text style={[globalstyles.p1]}>Boiling Water</Text>
-            <View style={{flexDirection: 'row', alignItems: "center"}}>
-              <Text style={[globalstyles.p1, {marginRight: 35 * width}]}>Adding Some Juice</Text>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <Text style={[globalstyles.p1, {marginRight: 35 * width}]}>
+                Adding Some Juice
+              </Text>
               <Text style={globalstyles.p1}>Done ✅</Text>
             </View>
           </View>
           <View style={styles.buttonWrapper}>
             <FrameBtn />
-            <TouchableOpacity 
+            <TouchableOpacity
               onPress={() => {
                 navigation.navigate('Home');
               }}
-              style={{width:'100%', 
-              alignItems: 'center', 
-              justifyContent: 'center'
-            }}
-            >
+              style={{
+                width: '100%',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
               <View style={styles.button}>
-                <Text style={[globalstyles.h3, {color:'white'}]}>Return to Home</Text>
+                <Text style={[globalstyles.h3, {color: 'white'}]}>
+                  Return to Home
+                </Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -202,7 +219,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 350 * height,
+    marginBottom: 300 * height,
   },
   cobotStyle: {
     width: 20 * width,

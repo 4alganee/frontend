@@ -22,56 +22,98 @@ const screenWidth = Dimensions.get('window').width;
 
 const DATA = {
   0: {
-    author: 'BigBang GD',
+    id: 4,
+    name: 'Soft Tofu Yeul Rameon',
     content:
       "Soft Tofu Yeul Rameon combines the silkiness of soft tofu with the hearty warmth of ramen. The dish features a flavorful broth, chewy noodles, and delicate pieces of soft tofu that soak up the flavors of the soup. The combination results in a soothing and wholesome bowl of ramen that's both comforting and satisfying, appealing to those who enjoy a softer and more delicate texture.",
-    estimatedTime: '3m 30s',
     foodId: 2,
-    id: 4,
-    image: 'https://ottogi.okitchen.co.kr/pds/editor/227_3.jpg',
+    author: 'BigBang GD',
     isPublic: true,
+    estimatedTime: '3m 30s',
     likes: 77,
-    name: 'Soft Tofu Yeul Rameon',
-    options: [
-      {id: 16, recipeId: 4, title: 'Spiciness'},
-      {id: 21, recipeId: 4, title: 'Saltiness'},
-      {id: 26, recipeId: 4, title: 'Greasiness'},
-      {id: 34, recipeId: 4, title: 'Savoriness'},
-      {id: 39, recipeId: 4, title: 'Noodle Thickness'},
-      {id: 50, recipeId: 4, title: 'Cheese'},
-    ],
+    image: 'https://ottogi.okitchen.co.kr/pds/editor/227_3.jpg',
     price: '11000',
     reviews: [
       {
+        id: 2,
         content:
           "Soft Tofu Yeul Rameon is a remarkable fusion that artfully marries the tenderness of tofu with the heartiness of ramen. Its broth strikes a flawless balance between gentle umami and subtle spice, offering a comforting embrace. Soft tofu cubes melt in the mouth alongside chewy ramen noodles, creating a delightful texture symphony. Fresh vegetables add crunch, though a bit more spice would be welcome for heat-seekers. This dish is a testament to Korean culinary finesse, a harmonious blend of flavors and textures that's simply captivating.",
-        id: 2,
+        star: 4,
+        user: {
+          id: '2',
+          name: 'Sungchulšić',
+          image:
+            'https://storage.googleapis.com/ja2023/KakaoTalk_Photo_2023-08-19-21-05-01.png',
+        },
         image:
           'https://recipe1.ezmember.co.kr/cache/recipe/2020/12/12/5f31bff6125f434b1d88bf69755b17c61_f.jpg',
-        star: 4,
-        user: [Object],
       },
       {
+        id: 1,
         content:
           "Soft Tofu Yeul Rameon skillfully combines the velvety softness of tofu with the heartiness of ramen, resulting in a comforting fusion dish that's both visually appealing and satisfying. The broth strikes a gentle balance between umami and subtle spiciness, creating a welcoming sensation. The delicate tofu cubes add a creamy texture that complements the chewy ramen noodles, while fresh vegetables provide a refreshing crunch. Although the spice level could be bolder for some, Soft Tofu Yeul Rameon stands as a testament to Korean culinary ingenuity, offering a uniquely delightful dining experience.",
-        id: 1,
+        star: 5,
+        user: {
+          id: '1',
+          name: 'Minsušić',
+          image:
+            'https://storage.googleapis.com/ja2023/KakaoTalk_Photo_2023-08-19-21-05-01.png',
+        },
         image:
           'https://recipe1.ezmember.co.kr/cache/recipe/2020/12/12/5f31bff6125f434b1d88bf69755b17c61_f.jpg',
-        star: 5,
-        user: [Object],
       },
       {
+        id: 3,
         content:
           "Soft Tofu Yeul Rameon presents a delightful fusion of soft tofu's velvety charm and ramen's satisfying comfort. The broth strikes a gentle balance between umami and mild spiciness, embracing the palate in warmth. The tofu's creamy texture complements the chewy noodles, while fresh vegetables add a crispy touch. While the spice level caters to a wider audience, a bolder kick would elevate the experience. Soft Tofu Yeul Rameon captures the essence of Korean cuisine's finesse, delivering a balanced, flavorful, and satisfying bowl.",
-        id: 3,
+        star: 3,
+        user: {
+          id: '3',
+          name: 'Jinhyungšić',
+          image:
+            'https://storage.googleapis.com/ja2023/KakaoTalk_Photo_2023-08-19-21-05-01.png',
+        },
         image:
           'https://recipe1.ezmember.co.kr/cache/recipe/2020/12/12/5f31bff6125f434b1d88bf69755b17c61_f.jpg',
-        star: 3,
-        user: [Object],
       },
     ],
-    starData: {average: 4, count: 3},
     tags: [],
+    options: [
+      {
+        id: 16,
+        title: 'Spiciness',
+        recipeId: 4,
+      },
+      {
+        id: 21,
+        title: 'Saltiness',
+        recipeId: 4,
+      },
+      {
+        id: 26,
+        title: 'Greasiness',
+        recipeId: 4,
+      },
+      {
+        id: 34,
+        title: 'Savoriness',
+        recipeId: 4,
+      },
+      {
+        id: 39,
+        title: 'Noodle Thickness',
+        recipeId: 4,
+      },
+      {
+        id: 50,
+        title: 'Cheese',
+        recipeId: 4,
+      },
+    ],
+    starData: {
+      count: 3,
+      average: 4,
+    },
   },
   1: {
     author: 'Baek Jong Won',

@@ -31,11 +31,11 @@ export const HomeRouter = () => {
           headerTitle: '',
         }}
       />
-      <stack.Screen 
-        name="Order" 
-        component={Order} 
+      <stack.Screen
+        name="Order"
+        component={Order}
         options={{headerShown: false}}
-        />
+      />
       <stack.Group
         screenOptions={{
           headerTintColor: '#372525',

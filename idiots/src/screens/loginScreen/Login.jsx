@@ -79,9 +79,9 @@ const styles = StyleSheet.create({
   loginWrapper: {
     width: '100%',
     height: '100%',
-    justifyContent: 'center',
     alignItems: 'center',
     rowGap: 10 * height,
+    marginTop: 100 * height,
   },
   logo: {
     width: 124 * scale,

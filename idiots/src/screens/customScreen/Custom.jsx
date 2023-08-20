@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import {useMemo, useState} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -76,6 +77,7 @@ const Radio = () => {
 };
 
 export const Custom = props => {
+  const navigation = useNavigation();
   const recipe = props.route.params.recipe;
   return (
     <View style={styles.container}>
@@ -134,7 +136,9 @@ export const Custom = props => {
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
-                navigation.navigate('Custom');
+                navigation.navigate('Order', {
+                  estimatedTime: recipe.estimatedTime,
+                });
               }}>
               <Text style={[globalstyles.p1, {color: 'white'}]}>
                 ₩{comma(recipe.price)} Place Order
@@ -143,8 +147,6 @@ export const Custom = props => {
           </View>
         </ScrollView>
       </View>
-      {/* {recipe.image && ( */}
-      {/* )} */}
     </View>
   );
 };
@@ -207,5 +209,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10 * height,
     marginBottom: 300 * height,
+  },
+  buttonwrapper: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

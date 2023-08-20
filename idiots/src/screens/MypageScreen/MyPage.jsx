@@ -13,6 +13,7 @@ export const Mypage = () => {
       require('../../../configs/assets/img2.png'),
       require('../../../configs/assets/img3.png'),
       require('../../../configs/assets/img4.png'),
+      require('../../../configs/assets/img5.png'),
     ],
   };
   return (
