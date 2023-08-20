@@ -1,9 +1,11 @@
+
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { globalstyles, height, scale, width } from '../../../configs/globalStyles';
 import { FrameBtn } from '../FramePicture/FrameBtn';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
 
 export const Order = props => {
   const navigation = useNavigation();
@@ -24,10 +26,10 @@ export const Order = props => {
   }
   const updateValidate = () => {
     setValidate(true);
-  }
+  };
   const updateRemain = () => {
     setRemainTime(remainTime - 1);
-  }
+  };
   useEffect(() => {
     setTotalTime(totalSeconds * 1000); // Convert to ms
     setRemainTime(totalSeconds);
@@ -53,7 +55,7 @@ export const Order = props => {
   }, [totalTime]);
   useEffect(() => {
     const timer = setInterval(() => {
-      setRemainTime((prevCount) => prevCount - 1);
+      setRemainTime(prevCount => prevCount - 1);
     }, 1000);
 
     // 타이머 정리
@@ -61,30 +63,39 @@ export const Order = props => {
       clearInterval(timer);
     };
   }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={globalstyles.h2_2}>Order</Text>
       </View>
       <View style={styles.content}>
-        {validate ? 
+        {validate ? (
           <View>
-            <Text style={globalstyles.h1}>Your food is ready ✅</Text> 
-            <Text style={globalstyles.p1}>Please take your food{'\n'}from the Covot.</Text>
+            <Text style={globalstyles.h1}>Your food is ready ✅</Text>
+            <Text style={globalstyles.p1}>
+              Please take your food{'\n'}from the Covot.
+            </Text>
           </View>
-          : 
-          <Text style={globalstyles.h1}>Cobot is cooking👨‍🍳{'\n'}your food.</Text>
-        }
+        ) : (
+          <Text style={globalstyles.h1}>
+            Cobot is cooking👨‍🍳{'\n'}your food.
+          </Text>
+        )}
         <View style={styles.remainTime}>
-          {!validate ? 
-          <>
-            <Text style={[globalstyles.h1, {color:"white"}]}>{remainTime}s</Text>
-            <Text style={[globalstyles.h2, {color:"white"}]}>remaining</Text>
-          </> :
-          <Text style={[globalstyles.h1, {color:"white"}]}>Done🎉</Text>
-          }
+          {!validate ? (
+            <>
+              <Text style={[globalstyles.h1, {color: 'white'}]}>
+                {remainTime}s
+              </Text>
+              <Text style={[globalstyles.h2, {color: 'white'}]}>remaining</Text>
+            </>
+          ) : (
+            <Text style={[globalstyles.h1, {color: 'white'}]}>Done🎉</Text>
+          )}
         </View>
       </View>
+
       <View style={{justifyContent:'space-between'}}>
         <View style={styles.timeBarWrapper}>
           <View style={styles.sidebarContainer}>
@@ -122,8 +133,8 @@ export const Order = props => {
         </View>
       </View>
     </View>
-  )
-}
+  );
+};
 const styles = StyleSheet.create({
   button: {
     width: '100%',
@@ -201,5 +212,5 @@ const styles = StyleSheet.create({
   PngWrapper: {
     position: 'Relative',
     top: -32 * height,
-  }
+  },
 });
