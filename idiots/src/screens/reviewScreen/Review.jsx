@@ -50,7 +50,7 @@ export const Review = props => {
             );
           })
         ) : (
-          <Text>리뷰가 없어요 😭</Text>
+          <Text style={globalstyles.h3}>There is no review 😭</Text>
         )}
       </ScrollView>
     </View>
