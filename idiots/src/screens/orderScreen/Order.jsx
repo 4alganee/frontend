@@ -1,6 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import { globalstyles, height, scale, width } from '../../../configs/globalStyles';
+import {useNavigation} from '@react-navigation/native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, StyleSheet, Image} from 'react-native';
+import {
+  globalstyles,
+  height,
+  scale,
+  width,
+} from '../../../configs/globalStyles';
 
 export const Order = props => {
   const [sidebarWidth, setSidebarWidth] = useState(0); // 10초 [ms
@@ -20,10 +26,10 @@ export const Order = props => {
   }
   const updateValidate = () => {
     setValidate(true);
-  }
+  };
   const updateRemain = () => {
     setRemainTime(remainTime - 1);
-  }
+  };
   useEffect(() => {
     setTotalTime(totalSeconds * 1000); // Convert to ms
     setRemainTime(totalSeconds);
@@ -49,7 +55,7 @@ export const Order = props => {
   }, [totalTime]);
   useEffect(() => {
     const timer = setInterval(() => {
-      setRemainTime((prevCount) => prevCount - 1);
+      setRemainTime(prevCount => prevCount - 1);
     }, 1000);
 
     // 타이머 정리
@@ -57,49 +63,69 @@ export const Order = props => {
       clearInterval(timer);
     };
   }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={globalstyles.h2_2}>Order</Text>
       </View>
       <View style={styles.content}>
-        {validate ? 
+        {validate ? (
           <View>
-            <Text style={globalstyles.h1}>Your food is ready ✅</Text> 
-            <Text style={globalstyles.p1}>Please take your food{'\n'}from the Covot.</Text>
+            <Text style={globalstyles.h1}>Your food is ready ✅</Text>
+            <Text style={globalstyles.p1}>
+              Please take your food{'\n'}from the Covot.
+            </Text>
           </View>
-          : 
-          <Text style={globalstyles.h1}>Cobot is cooking👨‍🍳{'\n'}your food.</Text>
-        }
+        ) : (
+          <Text style={globalstyles.h1}>
+            Cobot is cooking👨‍🍳{'\n'}your food.
+          </Text>
+        )}
         <View style={styles.remainTime}>
-          {!validate ? 
-          <>
-            <Text style={[globalstyles.h1, {color:"white"}]}>{remainTime}s</Text>
-            <Text style={[globalstyles.h2, {color:"white"}]}>remaining</Text>
-          </> :
-          <Text style={[globalstyles.h1, {color:"white"}]}>Done🎉</Text>
-          }
+          {!validate ? (
+            <>
+              <Text style={[globalstyles.h1, {color: 'white'}]}>
+                {remainTime}s
+              </Text>
+              <Text style={[globalstyles.h2, {color: 'white'}]}>remaining</Text>
+            </>
+          ) : (
+            <Text style={[globalstyles.h1, {color: 'white'}]}>Done🎉</Text>
+          )}
         </View>
       </View>
       <View style={styles.timeBarWrapper}>
         <View style={styles.sidebarContainer}>
-          <View style={[styles.sidebar, { width: `${sidebarWidth}%` }]}/>
+          <View style={[styles.sidebar, {width: `${sidebarWidth}%`}]} />
           <View style={styles.PngWrapper}>
-            <Image source={require('../../../configs/assets/Cobot.png')} style={styles.cobotStyle}/>
-            <View style={{width: 8 * width, height: '100%', backgroundColor:'red', borderRadius: 200}}/>
+            <Image
+              source={require('../../../configs/assets/Cobot.png')}
+              style={styles.cobotStyle}
+            />
+            <View
+              style={{
+                width: 8 * width,
+                height: '100%',
+                backgroundColor: 'red',
+                borderRadius: 200,
+              }}
+            />
           </View>
         </View>
       </View>
       <View style={styles.process}>
         <Text style={[globalstyles.p1]}>Boiling Water</Text>
-        <View style={{flexDirection: 'row', alignItems: "center"}}>
-          <Text style={[globalstyles.p1, {marginRight: 35 * width}]}>Adding Some Juice</Text>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <Text style={[globalstyles.p1, {marginRight: 35 * width}]}>
+            Adding Some Juice
+          </Text>
           <Text style={globalstyles.p1}>Done ✅</Text>
         </View>
       </View>
     </View>
-  )
-}
+  );
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -161,5 +187,5 @@ const styles = StyleSheet.create({
   PngWrapper: {
     position: 'Relative',
     top: -32 * height,
-  }
+  },
 });
